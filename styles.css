@@ -43,7 +43,7 @@ h1{
 }
 
 .board-cell:hover{
-    background-color: rgb(58, 98, 133);
+    background-color: rgb(124, 157, 187);
 }
 
 .btn{
@@ -87,4 +87,12 @@ h5 a{
         height: var(--cell-size);
         font-size: 80px;
     }
+}
+
+.x{
+    color: rgb(235, 122, 122);
+}
+
+.o{
+    color: rgb(58, 98, 133);
 }

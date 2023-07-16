@@ -32,28 +32,31 @@ const startGame = function(){
 
 function clickEvent(event){
     let cell = event.target
-    if(!isPlayer2turn){
-        currentPlayerMark = player1.marker;
-    }else {
-        currentPlayerMark = player2.marker;
+    if(!cell.innerText){
+        if(!isPlayer2turn){
+            currentPlayerMark = player1.marker;
+        }else {
+            currentPlayerMark = player2.marker;
+        }
+        placeMark(cell, currentPlayerMark)
+        if (checkWin(currentPlayerMark)) {
+            endGame(false)
+        } 
+        else if (isDraw()){
+            endGame(true)
+        } 
+        else {
+            switchPlayer()
+        }
     }
-    placeMark(cell, currentPlayerMark)
-    if (checkWin(currentPlayerMark)) {
-        endGame(false)
-    } 
-    else if (isDraw()){
-        endGame(true)
-    } 
-    else {
-        switchPlayer()
-    }
+    
 }
 
 const placeMark = (cell, currentPlayerMark)=> {
-    if(!cell.innerText){
-        cell.innerText = currentPlayerMark;
-        moves ++
-    }
+    cell.color = 'white'
+    cell.innerText = currentPlayerMark;
+    cell.classList.add(currentPlayerMark)
+    moves ++
 }
 
 const switchPlayer = function(){
@@ -73,9 +76,14 @@ function endGame(draw){
         title.innerText = "It's a draw!"
     } else {
         if (currentPlayerMark === player1.marker){
-            title.innerText = `Player ${player1.marker} wins!`
+            title.innerHTML = `Player <span>${player1.marker}</span> wins!`
+            const winner = document.querySelector('span')
+            winner.classList.add(player1.marker)
+            // title.innerText = `Player ${player1.marker} wins!`
         } else{
-            title.innerText = `Player ${player2.marker} wins!`
+            title.innerHTML = `Player <span>${player2.marker}</span> wins!`
+            const winner = document.querySelector('span')
+            winner.classList.add(player2.marker)
         }
         
     }
