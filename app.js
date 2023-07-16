@@ -73,9 +73,9 @@ function endGame(draw){
         title.innerText = "It's a draw!"
     } else {
         if (currentPlayerMark === player1.marker){
-            title.innerText = `${player1.name} Wins!`
+            title.innerText = `Player ${player1.marker} wins!`
         } else{
-            title.innerText = `${player2.name} Wins!`
+            title.innerText = `Player ${player2.marker} wins!`
         }
         
     }

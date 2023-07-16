@@ -10,6 +10,7 @@ body{
     --cell-size: 150px;
 }
 
+
 h1{
     color: white;
     font-size: 3em;
@@ -69,4 +70,21 @@ h1{
 h5 a{
     color: lightblue;
     
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --cell-size: 100px;
+    }
+    .game-board{
+        height: 360px;
+        width: 360px;
+    }
+
+    .board-cell{
+        border: white solid 1px;
+        width: var(--cell-size);
+        height: var(--cell-size);
+        font-size: 80px;
+    }
 }
