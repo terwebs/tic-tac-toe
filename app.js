@@ -111,6 +111,8 @@ startGame()
 restartBtn.addEventListener('click', ()=>{
     moves = 0
     for (cell of allCells){
+        cell.classList.remove('x')
+        cell.classList.remove('o')
         cell.innerText = ''
     }
     startGame()
